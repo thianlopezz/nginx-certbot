@@ -6,7 +6,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
 fi
 
 mainDomain=(ecudevs.xyz)
-domains=(api.ecudevs.xyz)
+domains=(ecudevs.xyz,api.ecudevs.xyz)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="thianlopezz@gmail.com" # Adding a valid address is strongly recommended
