@@ -44,7 +44,7 @@ docker-compose -p apps up --force-recreate -d nginx
 echo
 
 echo "### Deleting dummy certificate for $mainDomain ..."
-docker-compose -p apps run --rm --entrypoint "\
+docker-compose run --rm --entrypoint "\
   rm -Rf /etc/letsencrypt/live/$mainDomain && \
   rm -Rf /etc/letsencrypt/archive/$mainDomain && \
   rm -Rf /etc/letsencrypt/renewal/$mainDomain.conf" certbot
@@ -67,7 +67,7 @@ esac
 # Enable staging mode if needed
 if [ $staging != "0" ]; then staging_arg="--staging"; fi
 
-docker-compose -p apps run --rm --entrypoint "\
+docker-compose run --rm --entrypoint "\
   certbot certonly --webroot -w /var/www/certbot \
     $staging_arg \
     $email_arg \
@@ -78,4 +78,4 @@ docker-compose -p apps run --rm --entrypoint "\
 echo
 
 echo "### Reloading nginx ..."
-docker-compose -p apps exec nginx nginx -s reload
+docker-compose exec nginx nginx -s reload
