@@ -31,7 +31,7 @@ fi
 echo "### Creating dummy certificate for $mainDomain ..."
 path="/etc/letsencrypt/live/$mainDomain"
 mkdir -p "$data_path/conf/live/$mainDomain"
-docker-compose -p apps run --rm --entrypoint "\
+docker-compose run --rm --entrypoint "\
   openssl req -x509 -nodes -newkey rsa:1024 -days 1\
     -keyout '$path/privkey.pem' \
     -out '$path/fullchain.pem' \
