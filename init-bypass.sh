@@ -29,7 +29,7 @@ if [ ! -e "$data_path/conf/options-ssl-nginx.conf" ] || [ ! -e "$data_path/conf/
 fi
 
 echo "### Creating dummy certificate for $mainDomain ..."
-path="/etc/bypass/live/$mainDomain"
+path="/etc/letsencrypt/live/$mainDomain"
 mkdir -p "$data_path/conf/live/$mainDomain"
 docker-compose run --rm --entrypoint "\
   openssl req -x509 -nodes -newkey rsa:1024 -days 1\
@@ -45,9 +45,9 @@ echo
 
 echo "### Deleting dummy certificate for $mainDomain ..."
 docker-compose run --rm --entrypoint "\
-  rm -Rf /etc/bypass/live/$mainDomain && \
-  rm -Rf /etc/bypass/archive/$mainDomain && \
-  rm -Rf /etc/bypass/renewal/$mainDomain.conf" certbot
+  rm -Rf /etc/letsencrypt/live/$mainDomain && \
+  rm -Rf /etc/letsencrypt/archive/$mainDomain && \
+  rm -Rf /etc/letsencrypt/renewal/$mainDomain.conf" certbot
 echo
 
 
