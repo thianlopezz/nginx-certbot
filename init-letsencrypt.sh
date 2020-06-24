@@ -5,8 +5,8 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-mainDomain=(hispana.bitbox.com)
-domains=(hispana.bitbox.com)
+mainDomain=(hispana.bitbox.ec)
+domains=(hispana.bitbox.ec)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="thianlopezz@gmail.com" # Adding a valid address is strongly recommended
