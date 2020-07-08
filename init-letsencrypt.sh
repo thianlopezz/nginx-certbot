@@ -5,8 +5,8 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-mainDomain=(tienda.ecodelivery.org)
-domains=(tienda.ecodelivery.org,api.ecodelivery.org)
+mainDomain=(ecodelivery.org)
+domains=(tienda.ecodelivery.org api.ecodelivery.org)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="thianlopezz@gmail.com" # Adding a valid address is strongly recommended
